@@ -10,4 +10,6 @@ Made Spotify Clone using Tailwind CSS, ReactJS, MongoDB, NodeJS and ExpressJS.
 
 * **Step 4** - Create UI for our sidebar, player components
 
-* **Step 5** - Install `React-Router-DOM` package
+* **Step 5** - Install `React-Router-DOM` package and create required routes
+
+* **Step 6** - Create Navbar component
