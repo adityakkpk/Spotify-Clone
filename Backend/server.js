@@ -4,6 +4,7 @@ import "dotenv/config";
 import songRouter from "./src/routes/songRoute.js";
 import ConnectDB from "./src/config/mongodb.js";
 import connectCloudinary from "./src/config/cloudinary.js";
+import bodyParser from "body-parser";
 
 //app config
 const app = express();
@@ -14,6 +15,7 @@ connectCloudinary();
 //middleware
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 //initializing routes
 app.use("/api/song", songRouter);
