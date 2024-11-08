@@ -37,6 +37,14 @@ const addSong = async (req, res) => {
   }
 };
 
-const listSong = async (req, res) => {};
+const listSong = async (req, res) => {
+  try {
+    const allSongs = await songModel.find({});
+    res.status(200).json({songs: allSongs, success: true});
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error retrieving songs" });
+  }
+};
 
 export { addSong, listSong };
