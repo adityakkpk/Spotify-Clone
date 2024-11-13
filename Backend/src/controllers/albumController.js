@@ -29,7 +29,7 @@ const addAlbum = async (req, res) => {
 const listAlbum = async (req, res) => {
   try {
     const albums = await albumModel.find();
-    res.status(200).json(albums);
+    res.status(200).json({albums, success: true});
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error fetching albums" });
@@ -43,7 +43,7 @@ const removeAlbum = async (req, res) => {
     if (!deletedAlbum) {
       return res.status(404).json({ message: "Album not found" });
     }
-    res.status(200).json({ message: "Album deleted successfully" });
+    res.status(200).json({ message: "Album deleted successfully", success: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error deleting album" });

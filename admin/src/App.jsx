@@ -9,6 +9,8 @@ import ListAlbum from "./Pages/ListAlbum";
 import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
 
+export const url = `http://localhost:3000`;
+
 const App = () => {
   return <div className="flex items-start min-h-screen">
     <ToastContainer />

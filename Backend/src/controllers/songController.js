@@ -30,7 +30,7 @@ const addSong = async (req, res) => {
     console.log(songData);
     const song = songModel(songData);
     await song.save();
-    res.status(201).json({ message: "Song added successfully" });
+    res.status(201).json({ message: "Song added successfully", success: true });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error adding song" });
@@ -50,7 +50,7 @@ const listSong = async (req, res) => {
 const removeSong = async (req, res) => {
   try {
     await songModel.findByIdAndDelete(req.body.id);
-    res.status(200).json({ message: "Song removed successfully" });
+    res.status(200).json({ message: "Song removed successfully", success: true });
   } catch (error) {
     res.status(500).json({ message: "Error removing song" });
   }
