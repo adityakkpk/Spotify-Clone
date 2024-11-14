@@ -19,7 +19,7 @@ const addAlbum = async (req, res) => {
     const album = albumModel(albumData);
     await album.save();
 
-    res.status(201).json({ message: "Album added successfully", album });
+    res.status(201).json({ message: "Album added successfully", album, success: true });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Error adding album" });
