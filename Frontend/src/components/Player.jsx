@@ -2,9 +2,20 @@ import React, { useContext } from "react";
 import { assets } from "../assets/frontend-assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
 const Player = () => {
-  const { seekBg, seekBar, isPlaying, play, pause, track, time, previous, next, seekSong } = useContext(PlayerContext);
+  const {
+    seekBg,
+    seekBar,
+    isPlaying,
+    play,
+    pause,
+    track,
+    time,
+    previous,
+    next,
+    seekSong,
+  } = useContext(PlayerContext);
 
-  return (
+  return track ? (
     <div className="h-[10%] bg-black flex justify-between items-center text-white px-4">
       <div className="hidden lg:flex items-center gap-4">
         <img className="w-12" src={track.image} alt="" />
@@ -20,7 +31,12 @@ const Player = () => {
             src={assets.shuffle_icon}
             alt=""
           />
-          <img onClick={() => previous()} className="w-4 cursor-pointer" src={assets.prev_icon} alt="" />
+          <img
+            onClick={() => previous()}
+            className="w-4 cursor-pointer"
+            src={assets.prev_icon}
+            alt=""
+          />
           {!isPlaying ? (
             <img
               onClick={play}
@@ -36,11 +52,18 @@ const Player = () => {
               alt=""
             />
           )}
-          <img onClick={() => next()} className="w-4 cursor-pointer" src={assets.next_icon} alt="" />
+          <img
+            onClick={() => next()}
+            className="w-4 cursor-pointer"
+            src={assets.next_icon}
+            alt=""
+          />
           <img className="w-4 cursor-pointer" src={assets.loop_icon} alt="" />
         </div>
         <div className="flex items-center gap-5">
-          <p>{time.currentTime.minutes}:{time.currentTime.seconds}</p>
+          <p>
+            {time.currentTime.minutes}:{time.currentTime.seconds}
+          </p>
           <div
             ref={seekBg}
             onClick={seekSong}
@@ -51,7 +74,9 @@ const Player = () => {
               className="h-1 border-none w-10 bg-green-800 rounded-full"
             />
           </div>
-          <p>{time.duration.minutes}:{time.duration.seconds}</p>
+          <p>
+            {time.duration.minutes}:{time.duration.seconds}
+          </p>
         </div>
       </div>
       <div className="hidden lg:flex items-center gap-2 opacity-75">
@@ -69,7 +94,7 @@ const Player = () => {
         <img className="w-4 cursor-pointer" src={assets.zoom_icon} alt="" />
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Player;
